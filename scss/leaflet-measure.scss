@@ -21,7 +21,7 @@ $button-icon-spacing: 4px;
   }
 }
 
-@mixin button ($icon) {
+@mixin button($icon) {
   display: inline;
   width: auto;
   height: auto;
@@ -52,8 +52,9 @@ $button-icon-spacing: 4px;
 .leaflet-measure-resultpopup {
   h3 {
     margin: 0 0 $spacing-external 0;
-    padding-bottom: $spacing-internal;
-    border-bottom: solid 1px $color-divider;
+    // padding-bottom: $spacing-internal;
+    // border-bottom: solid 1px $color-divider;
+    text-align: center;
   }
   p {
     margin: $spacing-internal 0 0 0;
@@ -65,7 +66,7 @@ $button-icon-spacing: 4px;
   .tasks {
     margin: $spacing-external 0 0 0;
     padding: $spacing-internal 0 0 0;
-    border-top: solid 1px $color-divider;
+    // border-top: solid 1px $color-divider;
     text-align: right;
 
     list-style: none;

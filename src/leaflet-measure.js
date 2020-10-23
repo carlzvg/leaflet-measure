@@ -171,6 +171,8 @@ L.Control.Measure = L.Control.extend({
   },
   // return to state with no measure in progress, undo `this._startMeasure`
   _finishMeasure: function() {
+    // carlzvg: remove all other polygons after new polygon is draw
+    this._layer.clearLayers();
     const model = L.extend({}, this._resultsModel, { points: this._latlngs });
 
     this._locked = false;
@@ -390,11 +392,12 @@ L.Control.Measure = L.Control.extend({
 
     resultFeature.addTo(this._layer);
     resultFeature.bindPopup(popupContainer, this.options.popupOptions);
-    if (resultFeature.getBounds) {
-      resultFeature.openPopup(resultFeature.getBounds().getCenter());
-    } else if (resultFeature.getLatLng) {
-      resultFeature.openPopup(resultFeature.getLatLng());
-    }
+    // carlzvg: prevent auto popup after drawing
+    // if (resultFeature.getBounds) {
+    //   resultFeature.openPopup(resultFeature.getBounds().getCenter());
+    // } else if (resultFeature.getLatLng) {
+    //   resultFeature.openPopup(resultFeature.getLatLng());
+    // }
   },
   // handle map click during ongoing measurement
   // add new clicked point, update measure layers and results ui
